@@ -1,5 +1,6 @@
 package dev.rick.OddMatch.model;
 
+import dev.rick.OddMatch.model.dto.enums.BetStatus;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -8,7 +9,7 @@ import lombok.NoArgsConstructor;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "Bets")
+@Table(name = "bets")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -18,11 +19,22 @@ public class Bets {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private LocalDateTime criadoEm;
-    private LocalDateTime horarioJogo;
-    private Boolean situation;
     private Double stake;
     private Double odds;
-    private Double value;
 
+    @Enumerated
+    private BetStatus status;
+
+    @ManyToOne
+    @JoinColumn(name = "accounts_id")
+    private Accounts accounts;
+
+    @ManyToOne
+    @JoinColumn(name = "house_id")
+    private Houses houses;
+
+    @ManyToOne
+    @JoinColumn(name = "event_id")
+    private Event event;
 
 }

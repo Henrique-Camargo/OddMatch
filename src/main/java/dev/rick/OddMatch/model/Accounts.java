@@ -1,5 +1,25 @@
 package dev.rick.OddMatch.model;
 
-//contas de um usuario X para poder controlar o quanto esta em cada conta e lucro em cada conta
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Entity
+@Table(name = "accounts")
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Accounts {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private Users users;
+
+    private String login;
+    private String password;
 }
