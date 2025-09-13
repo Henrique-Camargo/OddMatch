@@ -12,20 +12,20 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/users")
+@RequestMapping("/usuarios")
 @RequiredArgsConstructor
 public class UserController {
 
     private final UserService service;
 
-    @PostMapping("/save")
+    @PostMapping("/salvar")
     public ResponseEntity<UserResponse> save (@RequestBody UserRequest request){
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(UserMapper.toResponse(service
                         .save(UserMapper.toUser(request))));
     }
 
-    @GetMapping("/findall")
+    @GetMapping("/find/all")
     public ResponseEntity<List<UserResponse>> findAll(){
         List<UserResponse> users = service.findAll().stream()
                 .map(UserMapper::toResponse)
