@@ -3,6 +3,7 @@ package dev.rick.OddMatch.model;
 import dev.rick.OddMatch.model.dto.enums.BetStatus;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -10,6 +11,7 @@ import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "bets")
+@Builder
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

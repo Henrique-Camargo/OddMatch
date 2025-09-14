@@ -8,7 +8,7 @@ import lombok.experimental.UtilityClass;
 @UtilityClass
 public class HousesMapper {
 
-    public Houses toHouse (HousesRequest request){
+    public static Houses toHouse (HousesRequest request){
         return Houses
                 .builder()
                 .name(request.name())
@@ -16,7 +16,7 @@ public class HousesMapper {
                 .build();
     }
 
-    public HousesResponse toResponse (Houses houses){
+    public static HousesResponse toResponse (Houses houses){
         return HousesResponse
                 .builder()
                 .id(houses.getId())

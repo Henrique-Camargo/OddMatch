@@ -8,7 +8,7 @@ import lombok.experimental.UtilityClass;
 @UtilityClass
 public class EventMapper {
 
-    public Event toEvent(EventRequest request){
+    public static Event toEvent(EventRequest request){
         return Event
                 .builder()
                 .name(request.name())
@@ -17,7 +17,7 @@ public class EventMapper {
                 .build();
     }
 
-    public EventResponse toResponse(Event event){
+    public static EventResponse toResponse(Event event){
         return EventResponse
                 .builder()
                 .id(event.getId())
