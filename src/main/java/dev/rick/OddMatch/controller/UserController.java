@@ -25,7 +25,7 @@ public class UserController {
                         .save(UserMapper.toUser(request))));
     }
 
-    @GetMapping("/find/all")
+    @GetMapping("/buscar/todos")
     public ResponseEntity<List<UserResponse>> findAll(){
         List<UserResponse> users = service.findAll().stream()
                 .map(UserMapper::toResponse)

@@ -23,7 +23,7 @@ public class AccountsController {
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
 
-    @GetMapping("/find/all")
+    @GetMapping("/buscar/todos")
     public ResponseEntity<List<AccountResponse>> findAll(){
         List<AccountResponse> accounts = service.findAll();
         return ResponseEntity.ok(accounts);
