@@ -33,4 +33,6 @@ public class BetsController {
                 .toList();
         return ResponseEntity.ok(bets);
     }
+
+
 }
